@@ -1,0 +1,6 @@
+projectKey=notificationModule
+serverUrl=http://localhost:9090
+serverVersion=25.2.0.102705
+dashboardUrl=http://localhost:9090/dashboard?id=notificationModule
+ceTaskId=dc5b8ce6-e0a3-4ac7-8bb2-6a6cb55b330f
+ceTaskUrl=http://localhost:9090/api/ce/task?id=dc5b8ce6-e0a3-4ac7-8bb2-6a6cb55b330f

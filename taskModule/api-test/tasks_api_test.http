@@ -1,0 +1,24 @@
+@basePath = https://localhost:8002
+@apiPath = {{basePath}}/api/tasks
+
+### Get all tasks for an Engineer
+GET {{apiPath}}/engineer/luckymmec7795@gmail.com
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imx1Y2t5bW1lYzc3OTVAZ21haWwuY29tIiwicm9sZSI6ImVuZ2luZWVyIiwiaWF0IjoxNzQwMTU4NDkxLCJleHAiOjE3NDAxNjU2OTF9.cJHV3uZavotq_aAjUMj-AWbuVE8Mf2CHZfWpmTykKbo
+
+### Get all tasks based on status for an Engineer
+GET {{apiPath}}/engineer/luckymmec7795@gmail.com/open
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imx1Y2t5bW1lYzc3OTVAZ21haWwuY29tIiwicm9sZSI6ImVuZ2luZWVyIiwiaWF0IjoxNzQwMTU4NDkxLCJleHAiOjE3NDAxNjU2OTF9.cJHV3uZavotq_aAjUMj-AWbuVE8Mf2CHZfWpmTykKbo
+
+### Get all tasks based on priority for an Engineer
+GET {{apiPath}}/engineer/luckymmec7795@gmail.com/priority/high
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imx1Y2t5bW1lYzc3OTVAZ21haWwuY29tIiwicm9sZSI6ImVuZ2luZWVyIiwiaWF0IjoxNzQwMTU4NDkxLCJleHAiOjE3NDAxNjU2OTF9.cJHV3uZavotq_aAjUMj-AWbuVE8Mf2CHZfWpmTykKbo
+
+### update ticket status
+
+PATCH {{apiPath}}/updateTicketStatus/40
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imx1Y2t5bW1lYzc3OTVAZ21haWwuY29tIiwicm9sZSI6ImVuZ2luZWVyIiwiaWF0IjoxNzQwMTk4NjUxLCJleHAiOjE3NDAyMDU4NTF9.2Ris7GfU8pwCKwO2g4-crFHVIXPDYzdQk6Csb_TQt6g
+
+{
+  "status": "completed"
+}

@@ -1,0 +1,172 @@
+[
+  {
+    "_id": 1,
+    "userEmail": "john.doe@example.com",
+    "serviceType": "fault",
+    "location": {
+      "latitude": 12.971598,
+      "longitude": 77.594562,
+      "address": "MG Road, Bangalore"
+    },
+    "description": "Network down in the area",
+    "priority": "high",
+    "status": "open",
+    "accepted": true,
+    "engineerEmail": "engineer3@example.com",
+    "createdAt": "2025-01-01T12:00:00Z",
+    "updatedAt": "2025-01-01T12:00:00Z"
+  },
+  {
+    "_id": 2,
+    "userEmail": "emma.smith@example.com",
+    "serviceType": "installation",
+    "location": {
+      "latitude": 12.9354,
+      "longitude": 77.6245,
+      "address": "Whitefield, Bangalore"
+    },
+    "description": "Install new broadband connection",
+    "priority": "medium",
+    "status": "open",
+    "accepted": false,
+    "engineerEmail": "engineer3@example.com",
+    "createdAt": "2025-01-02T12:30:00Z",
+    "updatedAt": "2025-01-02T12:30:00Z"
+  },
+  {
+    "_id": 3,
+    "userEmail": "liam.jones@example.com",
+    "serviceType": "fault",
+    "location": {
+      "latitude": 12.9712,
+      "longitude": 77.5937,
+      "address": "Bangalore East"
+    },
+    "description": "Intermittent internet connection",
+    "priority": "high",
+    "status": "in-progress",
+    "accepted": true,
+    "engineerEmail": "engineer3@example.com",
+    "createdAt": "2025-01-03T14:00:00Z",
+    "updatedAt": "2025-01-03T15:00:00Z"
+  },
+  {
+    "_id": 4,
+    "userEmail": "olivia.wilson@example.com",
+    "serviceType": "installation",
+    "location": {
+      "latitude": 12.9698,
+      "longitude": 77.7499,
+      "address": "Whitefield, Bangalore"
+    },
+    "description": "Install new DSL line",
+    "priority": "low",
+    "status": "open",
+    "accepted": false,
+    "engineerEmail": "engineer3@example.com",
+    "createdAt": "2025-01-04T10:00:00Z",
+    "updatedAt": "2025-01-04T10:00:00Z"
+  },
+  {
+    "_id": 5,
+    "userEmail": "john.doe@example.com",
+    "serviceType": "fault",
+    "location": {
+      "latitude": 12.9634,
+      "longitude": 77.6104,
+      "address": "Koramangala, Bangalore"
+    },
+    "description": "No signal from the router",
+    "priority": "high",
+    "status": "completed",
+    "accepted": true,
+    "engineerEmail": "engineer3@example.com",
+    "createdAt": "2025-01-05T08:30:00Z",
+    "updatedAt": "2025-01-05T09:00:00Z"
+  },
+  {
+    "_id": 6,
+    "userEmail": "emma.smith@example.com",
+    "serviceType": "installation",
+    "location": {
+      "latitude": 12.9228,
+      "longitude": 77.6173,
+      "address": "Jayanagar, Bangalore"
+    },
+    "description": "Set up new internet service",
+    "priority": "medium",
+    "status": "in-progress",
+    "accepted": true,
+    "engineerEmail": "engineer3@example.com",
+    "createdAt": "2025-01-06T11:00:00Z",
+    "updatedAt": "2025-01-06T12:00:00Z"
+  },
+  {
+    "_id": 7,
+    "userEmail": "liam.jones@example.com",
+    "serviceType": "fault",
+    "location": {
+      "latitude": 12.9813,
+      "longitude": 77.5967,
+      "address": "MG Road, Bangalore"
+    },
+    "description": "No connection after router installation",
+    "priority": "deferred",
+    "status": "in-progress",
+    "accepted": true,
+    "engineerEmail": "engineer3@example.com",
+    "createdAt": "2025-01-07T10:30:00Z",
+    "updatedAt": "2025-01-07T10:30:00Z"
+  },
+  {
+    "_id": 8,
+    "userEmail": "olivia.wilson@example.com",
+    "serviceType": "installation",
+    "location": {
+      "latitude": 12.9698,
+      "longitude": 77.7499,
+      "address": "Whitefield, Bangalore"
+    },
+    "description": "Install fiber optic cable",
+    "priority": "low",
+    "status": "completed",
+    "accepted": true,
+    "engineerEmail": "engineer3@example.com",
+    "createdAt": "2025-01-08T15:00:00Z",
+    "updatedAt": "2025-01-08T16:00:00Z"
+  },
+  {
+    "_id": 9,
+    "userEmail": "olivia.wilson@example.com",
+    "serviceType": "fault",
+    "location": {
+      "latitude": 12.9058,
+      "longitude": 77.5926,
+      "address": "Bangalore West"
+    },
+    "description": "Router not turning on",
+    "priority": "high",
+    "status": "open",
+    "accepted": false,
+    "engineerEmail": "engineer3@example.com",
+    "createdAt": "2025-01-09T09:00:00Z",
+    "updatedAt": "2025-01-09T09:00:00Z"
+  },
+  {
+    "_id": 9,
+    "userEmail": "naveenmarina2@gmail.com",
+    "serviceType": "fault",
+    "location": {
+      "latitude": 12.9058,
+      "longitude": 77.5926,
+      "address": "Bangalore West"
+    },
+    "description": "Router not turning on",
+    "priority": "high",
+    "status": "open",
+    "accepted": false,
+    "engineerEmail": "engineer3@example.com",
+    "createdAt": "2025-01-09T09:00:00Z",
+    "updatedAt": "2025-01-09T09:00:00Z"
+  }
+]

@@ -1,0 +1,73 @@
+@basePath = https://localhost:8004
+@apiPath = {{basePath}}/api/users
+
+
+### Get all users
+GET {{apiPath}}/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTYsImVtYWlsIjoidmlrYXMuYm9nYTEyM0BnbWFpbC5jb20iLCJuYW1lIjoiVmlrYXMgQm9nYSIsImlhdCI6MTczODkzODYwMiwiZXhwIjoxNzM4OTQ1ODAyfQ.E418j88F1EJxlFFHCMFQttka1ytvLRsouvmoQK9stwM
+
+### Get status of user Tickets
+GET {{apiPath}}/naveenmarina2@gmail.com/deferred
+
+
+### Add a new user
+POST {{apiPath}}/newUser
+content-type: application/json
+
+{
+    "name": "Harsha",
+    "email": "harsha@gmail.com",
+    "password": "Harsha@123",
+    "role": "user",
+    "phone": "+91-9899007865",
+    "pincode":"560079",
+    "address": "Bangalore WEST, India",
+    "securityQuestion": "What is your first pet’s name?",
+    "securityAnswer": "Charlie"
+}
+
+### Update checkUser
+POST {{apiPath}}/checkUser
+content-type: application/json
+
+{
+    "email": "vikas07@gmail.com",
+    "password": "Vikas@123"
+}
+
+### raise a new ticket
+POST {{apiPath}}/raiseTicket/marina@gmail.com
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hcmluYUBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTc0MDY0ODM1NCwiZXhwIjoxNzQwNjU1NTU0fQ.-FT6X-Mg1E6GO0SdLbPMxQv6ZZLeolyMVmtF5XIfY4k
+
+{
+    "serviceType": "installation",
+    "address": "Koramangala, Bangalore",
+    "description": "router turning off",
+    "pincode": "530013"
+}
+
+### get initial locations
+
+GET {{apiPath}}/get/initialLocations/4
+content-type: application/json
+
+
+###logout
+POST {{apiPath}}/logout
+
+### password reset
+POST {{apiPath}}/reset
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5hdmVlbm1hcmluYTJAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3Mzk2OTQ5OTUsImV4cCI6MTczOTcwMjE5NX0.L2JwL-HxPHwxhxd2AG4SECUDFruMPA1W7Ero9oa85Nc
+
+{
+    "email": "harsha@gmail.com",
+    "securityAnswer": "Charlie",
+    "newPassword": "Harsha@123"
+}
+
+### Get user profile
+GET {{apiPath}}/profile/engineer/luckymmec7795@gmail.com
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imx1Y2t5bW1lYzc3OTVAZ21haWwuY29tIiwicm9sZSI6ImVuZ2luZWVyIiwiaWF0IjoxNzQwNjM2MDA3LCJleHAiOjE3NDA2NDMyMDd9.msuZ7E43Z1iVgW_u6K6EGQa66_1XOchxaeQ8ISZ59EY

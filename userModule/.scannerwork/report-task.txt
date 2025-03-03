@@ -1,0 +1,6 @@
+projectKey=userModule
+serverUrl=http://localhost:9090
+serverVersion=25.2.0.102705
+dashboardUrl=http://localhost:9090/dashboard?id=userModule
+ceTaskId=b123e29b-1b69-4b15-a89a-d8e4e1d447a8
+ceTaskUrl=http://localhost:9090/api/ce/task?id=b123e29b-1b69-4b15-a89a-d8e4e1d447a8

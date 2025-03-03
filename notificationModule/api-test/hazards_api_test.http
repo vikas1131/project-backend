@@ -1,0 +1,36 @@
+@basePath = https://localhost:8003
+@apiPath = {{basePath}}/api/hazards
+
+### get all hazards
+GET {{apiPath}}/getAllHazards
+
+### add new hazard
+POST {{apiPath}}/addNewHazard
+Content-Type: application/json
+
+{
+    "hazardType": "Hazard Name",
+    "description": "Hazard Description",
+    "riskLevel": "high",
+    "address": "satyam, vizag",
+    "pincode": "530013"
+}
+
+
+### update hazard by id
+
+PATCH {{apiPath}}/updateHazard/67a9d30d1eee9851f5ddaa7c
+Content-Type: application/json
+
+{
+    "riskLevel": "low",
+    "pincode": "530013",
+    "address": "new satyam, vizag"
+}
+
+### delete hazard by id
+DELETE {{apiPath}}/deleteHazard/67bced56fa071552a12f6285
+
+### get hazard by id
+
+GET {{apiPath}}/getHazardById/67a9d30d1eee9851f5ddaa7c

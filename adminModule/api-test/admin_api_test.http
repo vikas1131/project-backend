@@ -1,0 +1,36 @@
+@basePath = https://localhost:8001
+@apiPath = {{basePath}}/api/admin
+
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InZpa2FzMDdAZ21haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQwNTY0NDAwLCJleHAiOjE3NDA1NzE2MDB9.mM4xXseo8DvtKEa-eZWl-WOn5bss0d9vtpUiwJAcTYQ
+
+### Get all tasks
+GET {{apiPath}}/tasks
+Authorization: Bearer {{token}} 
+
+### Get all tasks by status
+GET {{apiPath}}/status/failed
+Authorization: Bearer {{token}} 
+
+### Get all tasks by priority
+GET {{apiPath}}/priority/medium
+Authorization: Bearer {{token}} 
+
+### Get all users
+GET {{apiPath}}/engineers
+Authorization: Bearer {{token}} 
+
+### Get all engineers
+GET {{apiPath}}/engineers/availability/Monday
+Authorization: Bearer {{token}} 
+
+### Get engineer by email
+GET {{apiPath}}/engineer/luckymmec7795@gmail.com
+Authorization: Bearer {{token}} 
+
+### reassign the task pass ticketId and new engineerId
+PATCH {{apiPath}}/reassign/20/luckymmec7795@gmail.com
+Authorization: Bearer {{token}} 
+
+### approve Engineer
+PATCH {{apiPath}}/approve-engineer/harish123@gmail.com
+Authorization: Bearer {{token}} 

@@ -1,0 +1,24 @@
+@basePath = https://localhost:8003
+@apiPath = {{basePath}}/api/notifications
+
+### get user notifications
+GET {{apiPath}}/getNotifications/marina@gmail.com
+
+### add notification
+POST {{apiPath}}/addNotification
+Content-Type: application/json
+
+{
+  "email": "marina@gmail.com",
+  "message": "ticket raised successfully.",
+  "isRead": false
+}
+
+
+### update notification by id
+PATCH {{apiPath}}/updateNotification/67a9d30d1eee9851f5ddaa7c
+Content-Type: application/json
+ 
+{
+    "read": true
+}

@@ -1,0 +1,12 @@
+[
+  { "email": "john.doe@example.com", "name": "John Doe", "phone": "+91-9876543210", "address": "Indiranagar, Bangalore", "securityQuestion": "What is your first pet’s name?", "securityAnswer": "Charlie", "createdAt": "2025-01-01T12:00:00Z" },
+  { "email": "emma.smith@example.com", "name": "Emma Smith", "phone": "+91-8765432109", "address": "Koramangala, Bangalore", "securityQuestion": "What is your mother’s maiden name?", "securityAnswer": "Anderson", "createdAt": "2025-01-02T10:15:00Z" },
+  { "email": "liam.jones@example.com", "name": "Liam Jones", "phone": "+91-7654321098", "address": "Marathahalli, Bangalore", "securityQuestion": "What was your childhood nickname?", "securityAnswer": "Lio", "createdAt": "2025-01-03T11:30:00Z" },
+  { "email": "olivia.wilson@example.com", "name": "Olivia Wilson", "phone": "+91-6543210987", "address": "Electronic City, Bangalore", "securityQuestion": "What is your favorite color?", "securityAnswer": "Blue", "createdAt": "2025-01-04T14:45:00Z" },
+  { "email": "william.brown@example.com", "name": "William Brown", "phone": "+91-7896541230", "address": "Whitefield, Bangalore", "securityQuestion": "What was your first car?", "securityAnswer": "Honda", "createdAt": "2025-01-05T09:20:00Z" },
+  { "email": "sophia.miller@example.com", "name": "Sophia Miller", "phone": "+91-7412589630", "address": "Jayanagar, Bangalore", "securityQuestion": "What is your favorite food?", "securityAnswer": "Pizza", "createdAt": "2025-01-06T16:30:00Z" },
+  { "email": "james.davis@example.com", "name": "James Davis", "phone": "+91-8529637410", "address": "HSR Layout, Bangalore", "securityQuestion": "What city were you born in?", "securityAnswer": "Mumbai", "createdAt": "2025-01-07T08:15:00Z" },
+  { "email": "ava.garcia@example.com", "name": "Ava Garcia", "phone": "+91-9638527410", "address": "Hebbal, Bangalore", "securityQuestion": "What was your first school’s name?", "securityAnswer": "St. Paul’s", "createdAt": "2025-01-08T12:50:00Z" },
+  { "email": "benjamin.martinez@example.com", "name": "Benjamin Martinez", "phone": "+91-7893216540", "address": "Bannerghatta Road, Bangalore", "securityQuestion": "Who was your childhood best friend?", "securityAnswer": "Jake", "createdAt": "2025-01-09T14:00:00Z" },
+  { "email": "mia.rodriguez@example.com", "name": "Mia Rodriguez", "phone": "+91-8521479630", "address": "Malleshwaram, Bangalore", "securityQuestion": "What was the name of your first pet?", "securityAnswer": "Bunny", "createdAt": "2025-01-10T18:10:00Z" }
+]

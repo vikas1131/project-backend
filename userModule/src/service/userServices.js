@@ -382,14 +382,22 @@ class UserService {
             newTicket.userEmail = userEmail;
             const addedTicket = await this.addTicket(newTicket);
             console.log("addedTicket", addedTicket);
-
+ 
             if (addedTicket.success === true) {
                 console.log("addedTicket.success", addedTicket);
                 try{const apiUrl = "http://54.88.31.60:8003/api/notifications/sendNotification"; // Define apiUrl properly
                 const postData = {
                     userEmail: addedTicket.ticket.userEmail,
                     subject: "Ticket Raised Successfully",
-                    emailBody: `Ticket with ${addedTicket.ticket._id} raised successfully and assigned to ${addedTicket.ticket.engineerEmail}.`
+                    emailBody: `Dear User, \nTicket with ${addedTicket.ticket._id} raised successfully and assigned to ${addedTicket.ticket.engineerEmail}.
+                    \nTicket Details:\n
+                    Ticket ID: ${addedTicket.ticket._id}\n
+                    Service Type: ${addedTicket.ticket.serviceType}\n
+                    Description: ${addedTicket.ticket.description}\n
+                    Location:  ${addedTicket.ticket.address}\n
+                    Created at: ${addedTicket.ticket.createdAt}\n
+                    Best Regards\n
+                    Telecom Services`
                 };
                 console.log("post data",postData)
                 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";

@@ -54,7 +54,7 @@ class TaskService {
             emailBody: body
         };
 
-        const apiUrl = 'https://localhost:8003/api/notifications/sendNotification'; // Replace with actual API URL
+        const apiUrl = 'http://54.88.31.60:8003/api/notifications/sendNotification'; // Replace with actual API URL
 
 
         process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
@@ -70,19 +70,32 @@ class TaskService {
     }
 
     async updateTicketStatus(ticketId, state) {
+        console.log('state: ', state)
         try {
             const validStatuses = ['open', 'in-progress', 'completed', 'failed', 'deferred'];
             if (!validStatuses.includes(state)) {
                 throw new Error(`Invalid status: ${state}`);
             }
-
+ 
             const ticket = await this.TaskRepository.updateTicketStatus(ticketId, state);
-
+ 
             if (!ticket) {
                 throw new Error("Ticket not found");
             }
             else if (state === 'completed') {  
-                this.sendNotification(ticket.userEmail, 'Ticket resolved', `Your ticket with id ${ticket._id} has been resolved.` );
+                console.log("inside completed state");
+                const emailBody= `Dear User, \nTicket with ${ticket._id} resolved successfully.
+                    \nTicket Details:\n
+                    Ticket ID: ${ticket._id}\n
+                    Service Type: ${ticket.serviceType}\n
+                    Description: ${ticket.description}\n
+                    Location:  ${ticket.address}\n
+                    Created at: ${ticket.createdAt}\n
+                    Updated at: ${ticket.updatedAt}\n
+                    Best Regards\n
+                    Telecom Services`
+                console.log("email body: ", emailBody);
+                this.sendNotification(ticket.userEmail, 'Ticket resolved', emailBody );
             }
             return ticket;
         } catch (error) {

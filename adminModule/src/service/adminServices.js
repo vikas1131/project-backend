@@ -158,11 +158,29 @@ class AdminService {
     async approveEngineer(engineerEmail, approve) {
         try {
             const engineer = await this.adminRepository.updateEngineerApproval(engineerEmail, approve);
-
+ 
             if (!engineer) {
                 return { success: false, message: "Engineer not found" };
             }
-
+            else {
+                try {
+                    const apiUrl = "http://54.88.31.60:8003/api/notifications/sendNotification"; // Define apiUrl properly
+                    const postData = {
+                        userEmail: engineer.email,
+                        subject: "Ticket Raised Successfully",
+                        emailBody: `Dear Engineer, \nWelcome! your registration was successfully approved. You can login now.\nBest Regards\nTeam Telecom Services.`
+                    };
+                    console.log("post data", postData)
+                    process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+                    await axios.post(apiUrl, postData)
+                        .then(apiResponse => console.log("API Response:", apiResponse.data))
+                        .catch(error => console.error("Error calling API:", error.message));
+                }
+                catch (err) {
+                    console.log("error send notification")
+                }
+            }
+ 
             return { success: true, message: "Engineer approval updated", engineer };
         } catch (error) {
             console.error("Error approving engineer:", error);

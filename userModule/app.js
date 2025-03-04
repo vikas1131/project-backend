@@ -5,7 +5,7 @@ const cors = require('cors');
 
 const app = express();
 
-app.use(cors({ origin: "http://54.88.31.60:80", credentials: true }));
+app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 

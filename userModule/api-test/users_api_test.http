@@ -1,4 +1,4 @@
-@basePath = https://localhost:8004
+@basePath = http://18.212.53.8:8004
 @apiPath = {{basePath}}/api/users
 
 

@@ -385,7 +385,7 @@ class UserService {
 
             if (addedTicket.success === true) {
                 console.log("addedTicket.success", addedTicket);
-                try{const apiUrl = "https://localhost:8003/api/notifications/sendNotification"; // Define apiUrl properly
+                try{const apiUrl = "http://54.88.31.60:8003/api/notifications/sendNotification"; // Define apiUrl properly
                 const postData = {
                     userEmail: addedTicket.ticket.userEmail,
                     subject: "Ticket Raised Successfully",

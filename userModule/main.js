@@ -28,7 +28,7 @@ async function startServer() {
     try {
         await connectDB();
         server.listen(PORT, () => {
-            console.log(`running at https://localhost:${PORT}`)
+            console.log(`running at http://localhost:${PORT}`)
         })
     } catch (err) {
         console.error('Error starting the server', err);

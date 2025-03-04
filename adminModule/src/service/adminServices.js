@@ -165,10 +165,20 @@ class AdminService {
             else {
                 try {
                     const apiUrl = "http://54.88.31.60:8003/api/notifications/sendNotification"; // Define apiUrl properly
+                    let sub;
+                    let body;
+                    if(approve === true){
+                        sub= "Registration Approved",
+                        body= `Dear Engineer, \nWelcome! your registration was successfully approved. You can login now.\nBest Regards\nTeam Telecom Services.`
+                    }
+                    else{
+                        sub= "Registration Denied",
+                        body= `Dear Engineer, \nSorry, your registration was denied. Please try again later.\nBest Regards\nTeam Telecom Services.`
+                    }
                     const postData = {
                         userEmail: engineer.email,
-                        subject: "Ticket Raised Successfully",
-                        emailBody: `Dear Engineer, \nWelcome! your registration was successfully approved. You can login now.\nBest Regards\nTeam Telecom Services.`
+                        subject: sub,
+                        emailBody: body
                     };
                     console.log("post data", postData)
                     process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";

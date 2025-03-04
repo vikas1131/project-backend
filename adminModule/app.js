@@ -11,7 +11,7 @@ const app = express();
 
 app.use(cors({
     origin: '*',  // Allow requests from any domain (for testing)
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
     allowedHeaders: ['Content-Type', 'Authorization', 'X-User-Role','X-User-Email'],  // Explicitly allow x-user-role
     credentials: true
 }));

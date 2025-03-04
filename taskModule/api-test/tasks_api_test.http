@@ -1,4 +1,4 @@
-@basePath = https://localhost:8002
+@basePath = http://54.88.31.60/:8002
 @apiPath = {{basePath}}/api/tasks
 
 ### Get all tasks for an Engineer

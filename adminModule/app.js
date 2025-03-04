@@ -10,10 +10,12 @@ const app = express();
 //app.use(cors({ origin: "http://54.88.31.60:80", credentials: true }));
 
 app.use(cors({
-    origin: '*',  // Allow all origins (you can specify allowed origins)
+    origin: '*',  // Allow requests from any domain (for testing)
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization']
+    allowedHeaders: ['Content-Type', 'Authorization', 'x-user-role','x-user-email'],  // Explicitly allow x-user-role
+    credentials: true
 }));
+
 app.use(express.json());
 app.use(cookieParser());
 

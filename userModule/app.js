@@ -23,16 +23,16 @@ app.get('/error/:message', (req, res) => {
     throw new Error(req.params.message);
 })
 
-app.get('/health', (req, res) => {
-    res.json({ status: 'UP' });
-});
+// app.get('/health', (req, res) => {
+//     res.json({ status: 'UP' });
+// });
 
-app.get('/info', (req, res) => {
-    res.json({
-        app: 'USER_MODULE',
-        status: 'UP',
-        port: PORT
-    });
-});
+// app.get('/info', (req, res) => {
+//     res.json({
+//         app: 'USER_MODULE',
+//         status: 'UP',
+//         port: PORT
+//     });
+// });
 
 module.exports = app;

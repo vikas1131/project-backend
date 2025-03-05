@@ -9,7 +9,7 @@ const jwtHelper = require('../utils/jwtHelper');
 
 class UserService {
     constructor() {
-        this.UserRepository = new UserRepository(); // Dependency Injection
+        this.UserRepository = new UserRepository(); 
     }
 
     // get all users
@@ -102,16 +102,15 @@ class UserService {
         await this.UserRepository.createAuthEntry({ email: user.email, password: encryptedPassword.toString(), role: user.role });
 
         // Generate JWT token
-        const token = jwtHelper.createToken({
-            email: user.email,
-            role: user.role
-        });
+        // const token = jwtHelper.createToken({
+        //     email: user.email,
+        //     role: user.role
+        // });
 
         console.log(`User created successfully: ${user.email} - Role: ${user.role}`);
         return {
             success: true,
             message: "User registered successfully",
-            token,
             email: user.email,
             role: user.role,
             isEngineer: roleSpecificData.isEngineer,
@@ -174,7 +173,7 @@ class UserService {
             isEngineer: userDetails.isEngineer || false,
             isUser: userDetails.isUser || false,
             isAdmin: userDetails.isAdmin || false,
-            details: userDetails // Fetching full user details
+            details: userDetails 
         };
     }
 
@@ -183,23 +182,22 @@ class UserService {
             const { email, securityAnswer, newPassword } = data;
             console.log(`Resetting password ${email}, ${securityAnswer}, ${newPassword}`)
 
-            // Verify email & fetch security question
+            // verify email & fetch security question
             const authUser = await this.UserRepository.findAuthUser({ email: email });
             if (!authUser) {
                 return { success: false, message: "Email not found" };
             }
 
             const userRole = authUser.role;
-            console.log(userRole)
 
-            // Define role-based repository mapping
+            // define role-based repository mapping
             const roleRepositoryMap = {
                 'admin': this.UserRepository.findAdmin,
                 'engineer': this.UserRepository.findEngineer,
                 'user': this.UserRepository.findUser,
             };
 
-            // Fetch user details based on role
+            // fetch user details based on role
             if (!roleRepositoryMap[userRole]) {
                 return { success: false, message: "Invalid user role" };
             }
@@ -215,7 +213,7 @@ class UserService {
                 return { success: true, securityQuestion: user.securityQuestion };
             }
 
-            // Verify security answer
+            // verify security answer
             if (securityAnswer && !newPassword) {
                 const decryptedSecurityAnswer = encryptjs.decrypt(user.securityAnswer, secretKey, 256);
                 if (securityAnswer !== decryptedSecurityAnswer) {
@@ -224,7 +222,7 @@ class UserService {
                 return { success: true, message: "Security answer verified. Proceed to reset password." };
             }
 
-            // Reset password
+            // reset password
             if (newPassword) {
                 const encryptedPassword = encryptjs.encrypt(newPassword, secretKey, 256);
                 await this.UserRepository.updatePassword(email, encryptedPassword);
@@ -239,18 +237,7 @@ class UserService {
         }
     }
 
-    // async setPriority(ticket) {
-    //     try {
-    //         if (ticket.serviceType === 'fault') {
-    //             return 'high';
-    //         }
-    //         return 'medium';
-    //     } catch (error) {
-    //         console.error("Error updating ticket priority:", error);
-    //         throw new Error("Error updating ticket priority");
-    //     }
-    // }
-    async setPriority(ticket, assignedEngineer) {
+        async setPriority(ticket, assignedEngineer) {
         try {
             if (!assignedEngineer || !assignedEngineer.location || !assignedEngineer.location.latitude || !assignedEngineer.location.longitude) {
                 return 'low';
@@ -276,7 +263,7 @@ class UserService {
 
     async getLastId(data) {
         try {
-            if (data instanceof Object && data.serviceType) { // Check if it's a ticket (tickets have serviceType)
+            if (data instanceof Object && data.serviceType) { 
                 const lastTicket = await this.UserRepository.getLastTicket();
                 console.log("lastTicket", lastTicket)
                 return lastTicket ? lastTicket._id : 0;
@@ -295,18 +282,18 @@ class UserService {
 
     async haversineDistance(lat1, lon1, lat2, lon2) {
         const R = 6371;
-        const dLat = (lat2 - lat1) * (Math.PI / 180);
+        const dLat = (lat2 - lat1) * (Math.PI / 180); //convert to radians
         const dLon = (lon2 - lon1) * (Math.PI / 180);
         const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
             Math.cos(lat1 * (Math.PI / 180)) * Math.cos(lat2 * (Math.PI / 180)) *
             Math.sin(dLon / 2) * Math.sin(dLon / 2);
-        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)); //central angle
         return R * c;
     }
 
     async sortEngineers(engineers, ticket) {
-        console.log("engineers: ", engineers, ticket)
-        console.log("adsjfnlkasf",parseFloat(ticket.location.latitude))
+        // console.log("engineers: ", engineers, ticket)
+       
         return engineers
             .filter(engineer => engineer.location && engineer.location.latitude && engineer.location.longitude) // Skip invalid locations
             .map(engineer => ({
@@ -331,8 +318,8 @@ class UserService {
             }
             engineers=engineers.filter(engineer => engineer.specialization.toLowerCase()===ticket.serviceType.toLowerCase())
             const sortedEngineers = await this.sortEngineers(engineers, ticket);
-            console.log("sortedEngineers: ", sortedEngineers);
-            console.log("sortedEngineer: ", sortedEngineers[0]._doc.email);
+            // console.log("sortedEngineers: ", sortedEngineers);
+            // console.log("sortedEngineer: ", sortedEngineers[0]._doc.email);
             const assignedEngineer = sortedEngineers[0]._doc.email;
 
             const updatedTicket = await this.UserRepository.updateTicket(ticket, assignedEngineer);
@@ -366,7 +353,7 @@ class UserService {
             const newTicket = this.UserRepository.getTicketInstance(ticket);
             await newTicket.save();
             const assignedEngineer = await this.assignEngineerTicket(ticket);
-            console.log("assignedEngineer: ", assignedEngineer);
+            //console.log("assignedEngineer: ", assignedEngineer);
             newTicket.engineerEmail = assignedEngineer || "Not Assigned";
             await newTicket.save();
             console.log("newTicket: ", newTicket);

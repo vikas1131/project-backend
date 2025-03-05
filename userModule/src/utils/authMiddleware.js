@@ -1,35 +1,4 @@
-//const jwtHelper = require('../utils/jwtHelper');
-// const User = require('../model/users.model');
-// const Engineer =require('../model/engineers.model');
-// const Admin = require('../model/admin.model');
-// const Auth = require('../model/auth.model');
-// const authMiddleware = async (req, res, next) => {
-    
-//     try {
-//         // Verify JWT
-//         if(!req.headers.authorization){
-//             return res.status(401).json({ error: 'Unauthorized: No token provided' });
-//         }
-//         const token = req.headers.authorization.split(' ')[1];
 
-//         if (!token) {
-//             return res.status(401).json({ error: 'No token provided' });
-//         }
-//         const decoded = jwtHelper.verifyToken(token);
-
-//         const user = await Auth.findOne({email:decoded.email})
-//         if (!user) {
-//             return res.status(404).json({ error: 'User not found' });
-//         }
-
-//         req.user = user;  // Attach user info to request
-//         next();  // Proceed to the next route
-//     } catch (err) {
-//         return res.status(500).json({ error: 'Authentication failed' });
-//     }
-// };
-
-// module.exports = authMiddleware;
 
 const jwtHelper = require('../utils/jwtHelper');
 const Auth = require('../model/auth.model');

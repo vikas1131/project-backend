@@ -354,7 +354,7 @@ class UserService {
 
             ticket.city = ticket.city.trim();
             const newTicket = this.UserRepository.getTicketInstance(ticket);
-            await newTicket.save();
+            //await newTicket.save();
 
             let updatedPriority = await this.setPriority(ticket);
             newTicket.priority = updatedPriority; 
@@ -386,7 +386,11 @@ class UserService {
 
             const addedTicket = await this.addTicket(newTicket);
             console.log("addedTicket", addedTicket);
- 
+
+            if (!addedTicket || !addedTicket.success || !addedTicket.ticket) {
+                return { success: false, message: "Ticket creation failed. No ticket data returned." };
+            }
+
             if (addedTicket.success === true) {
                 console.log("addedTicket.success", addedTicket);
                 try{const apiUrl = "http://54.88.31.60:8003/api/notifications/sendNotification"; // Define apiUrl properly

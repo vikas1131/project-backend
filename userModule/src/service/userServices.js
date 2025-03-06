@@ -357,12 +357,12 @@ class UserService {
             await newTicket.save();
 
             let updatedPriority = await this.setPriority(ticket);
-            ticket.priority = updatedPriority; 
-            if (!ticket.createdAt) {
-                ticket.createdAt = new Date();
+            newTicket.priority = updatedPriority; 
+            if (!newTicket.createdAt) {
+                newTicket.createdAt = new Date();
             }
             await newTicket.save();
-            const assignedEngineer = await this.assignEngineerTicket(ticket);
+            const assignedEngineer = await this.assignEngineerTicket(newTicket);
             //console.log("assignedEngineer: ", assignedEngineer);
             newTicket.engineerEmail = assignedEngineer || "Not Assigned";
             await newTicket.save();

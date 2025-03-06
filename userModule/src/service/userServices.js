@@ -348,18 +348,19 @@ class UserService {
             const Id = await this.getLastId(ticket);
             ticket._id = Id + 1;
 
-            if (!ticket.city) {
+            if (!ticket.city || typeof ticket.city !== "string" || !ticket.city.trim()) {
                 return { success: false, message: "City field is required" };
             }
 
             newTicket.city = newTicket.city.trim();
+            const newTicket = this.UserRepository.getTicketInstance(ticket);
+            await newTicket.save();
 
             let updatedPriority = await this.setPriority(ticket);
             ticket.priority = updatedPriority; 
             if (!ticket.createdAt) {
                 ticket.createdAt = new Date();
             }
-            const newTicket = this.UserRepository.getTicketInstance(ticket);
             await newTicket.save();
             const assignedEngineer = await this.assignEngineerTicket(ticket);
             //console.log("assignedEngineer: ", assignedEngineer);

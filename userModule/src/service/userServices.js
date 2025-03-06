@@ -352,7 +352,7 @@ class UserService {
                 return { success: false, message: "City field is required" };
             }
 
-            newTicket.city = newTicket.city.trim();
+            ticket.city = ticket.city.trim();
             const newTicket = this.UserRepository.getTicketInstance(ticket);
             await newTicket.save();
 

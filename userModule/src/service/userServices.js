@@ -352,7 +352,7 @@ class UserService {
                 return { success: false, message: "City field is required" };
             }
 
-            newTicket.city = newTicket.city
+            newTicket.city = newTicket.city.trim();
 
             let updatedPriority = await this.setPriority(ticket);
             ticket.priority = updatedPriority; 
@@ -381,7 +381,7 @@ class UserService {
                 return { success: false, message: "City field is required and must be valid" };
             }
     
-            ticket.city = ticket.city;
+            ticket.city = ticket.city.trim();
 
             const addedTicket = await this.addTicket(newTicket);
             console.log("addedTicket", addedTicket);

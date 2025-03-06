@@ -352,6 +352,8 @@ class UserService {
                 return { success: false, message: "City field is required" };
             }
 
+            newTicket.city = newTicket.city
+
             let updatedPriority = await this.setPriority(ticket);
             ticket.priority = updatedPriority; 
             if (!ticket.createdAt) {
@@ -375,9 +377,12 @@ class UserService {
         try {
             newTicket.userEmail = userEmail;
 
-            if (!newTicket.city) {
-                return { success: false, message: "City field is required" };
+            if (!ticket.city || typeof ticket.city !== 'string') {
+                return { success: false, message: "City field is required and must be valid" };
             }
+    
+            ticket.city = ticket.city;
+
             const addedTicket = await this.addTicket(newTicket);
             console.log("addedTicket", addedTicket);
  

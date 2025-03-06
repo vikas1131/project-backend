@@ -51,11 +51,13 @@ class UserService {
         if (existingAuth) {
             return { success: false, message: "User with this email already exists" };
         }
+        console.log("User",user);
         let userData = {
             email: user.email,
             name: user.name,
             phone: user.phone,
             address: user.address,
+            city:user.city,
             pincode: user.pincode,
             securityQuestion: user.securityQuestion,
             securityAnswer: encryptedSecurityAnswer,
@@ -63,6 +65,7 @@ class UserService {
             isEngineer: user.role === "engineer" ? false : undefined,
             isUser: user.role === "user",
         };
+        console.log("UserData",userData);
 
         let roleSpecificData = { ...userData };
         // Role-specific processing
@@ -344,9 +347,13 @@ class UserService {
             ticket.location = await this.getCoordinates(ticket.pincode);
             const Id = await this.getLastId(ticket);
             ticket._id = Id + 1;
-            // Set priority before creating the ticket
+
+            if (!ticket.city) {
+                return { success: false, message: "City field is required" };
+            }
+
             let updatedPriority = await this.setPriority(ticket);
-            ticket.priority = updatedPriority; // Assign priority before saving
+            ticket.priority = updatedPriority; 
             if (!ticket.createdAt) {
                 ticket.createdAt = new Date();
             }
@@ -367,6 +374,10 @@ class UserService {
     async raiseTicket(userEmail, newTicket, response) {
         try {
             newTicket.userEmail = userEmail;
+
+            if (!newTicket.city) {
+                return { success: false, message: "City field is required" };
+            }
             const addedTicket = await this.addTicket(newTicket);
             console.log("addedTicket", addedTicket);
  

@@ -18,6 +18,10 @@ const userSchema = new mongoose.Schema({
     address: {
         type: String
     },
+    city:{
+        type:String,
+        required: true
+    },
     pincode: {
         type: String, // Assuming pincode is a string to support leading zeros
         required: true

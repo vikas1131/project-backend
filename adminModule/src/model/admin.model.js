@@ -27,6 +27,10 @@ const adminSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    city:{
+        type:String,
+        required: true
+    },
     pincode:{
         type:String,
         required: true

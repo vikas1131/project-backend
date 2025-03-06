@@ -378,11 +378,11 @@ class UserService {
         try {
             newTicket.userEmail = userEmail;
 
-            if (!ticket.city || typeof ticket.city !== 'string') {
+            if (!newTicket.city || typeof newTicket.city !== 'string') {
                 return { success: false, message: "City field is required and must be valid" };
             }
     
-            ticket.city = ticket.city.trim();
+            newTicket.city = newTicket.city.trim();
 
             const addedTicket = await this.addTicket(newTicket);
             console.log("addedTicket", addedTicket);

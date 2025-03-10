@@ -54,7 +54,7 @@ class TaskService {
             emailBody: body
         };
 
-        const apiUrl = 'http://54.88.31.60:8003/api/notifications/sendNotification'; // Replace with actual API URL
+        const apiUrl = 'http://localhost:8003/api/notifications/sendNotification'; // Replace with actual API URL
 
 
         process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";

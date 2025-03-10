@@ -164,7 +164,7 @@ class AdminService {
             }
             else {
                 try {
-                    const apiUrl = "http://54.88.31.60:8003/api/notifications/sendNotification"; // Define apiUrl properly
+                    const apiUrl = "http://localhost:8003/api/notifications/sendNotification"; // Define apiUrl properly
                     let sub;
                     let body;
                     if(approve === true){
